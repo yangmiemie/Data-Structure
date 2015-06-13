@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int IsEmpty(Stack S)
+int IsEmptyStack(Stack S)
 {
 	return S->Next == NULL;
 }
@@ -16,11 +16,11 @@ Stack CreateStack()
 	return S;
 }
 
-void MakeEmpty(Stack S)
+void MakeEmptyStack(Stack S)
 {
 	if (S != NULL)
 	{
-		while(!IsEmpty(S))
+		while(!IsEmptyStack(S))
 		{
 			Pop(S);
 		}
@@ -30,7 +30,7 @@ void MakeEmpty(Stack S)
 void Pop(Stack S)
 {
 	PtrToNode TmpCell;
-	if (!IsEmpty(S))
+	if (!IsEmptyStack(S))
 	{
 		TmpCell = S->Next;
 		S->Next = TmpCell->Next;
@@ -40,9 +40,9 @@ void Pop(Stack S)
 		fprintf(stderr, "Empty Stack\n");
 }
 
-ElementType Top(Stack S)
+StackElementType Top(Stack S)
 {
-	if (IsEmpty(S))
+	if (IsEmptyStack(S))
 	{
 		fprintf(stderr, "Empty Stack\n");
 	}
@@ -53,7 +53,7 @@ ElementType Top(Stack S)
 }
 
 
-void Push(ElementType X, Stack S)
+void Push(StackElementType X, Stack S)
 {
 	PtrToNode P;
 	P = malloc(sizeof(struct Node));

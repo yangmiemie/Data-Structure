@@ -1,20 +1,22 @@
-#define ElementType int
-#define NULL 0
+#include <stdio.h>
+
+#define StackElementType unsigned char
+// #define NULL 0
 
 struct Node;
 typedef struct Node* PtrToNode;
 typedef PtrToNode Stack;
 
-int IsEmpty(Stack S);
+int IsEmptyStack(Stack S);
 Stack CreateStack();
-void MakeEmpty(Stack S);
-void Push(ElementType X, Stack S);
-ElementType Top(Stack S);
+void MakeEmptyStack(Stack S);
+void Push(StackElementType X, Stack S);
+StackElementType Top(Stack S);
 void Pop(Stack S);
 void DisposeStack(Stack S);
 
 struct Node
 {
-	ElementType Element;
+	StackElementType Element;
 	PtrToNode Next;
 };

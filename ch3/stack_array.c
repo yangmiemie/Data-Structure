@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-Stack CreateStack(int MaxElements)
+Stack CreateStackArray(int MaxElements)
 {
 	Stack S;
 	S = malloc(sizeof(struct StackRecord));
@@ -11,7 +11,7 @@ Stack CreateStack(int MaxElements)
 	S->Capacity = MaxElements;
 }
 
-void DisposeStack(Stack S)
+void DisposeStackArray(Stack S)
 {
 	if (S)
 	{
@@ -20,24 +20,24 @@ void DisposeStack(Stack S)
 	}
 }
 
-int IsEmpty(Stack S)
+int IsEmptyStackArray(Stack S)
 {
 	return S->TopOfStack == -1;
 }
 
-void MakeEmpty(Stack S)
+void MakeEmptyStackArray(Stack S)
 {
 	S->TopOfStack = -1;
 }
 
-int IsFull(Stack S)
+int IsFullStackArray(Stack S)
 {
 	return S->TopOfStack + 1 == S->Capacity;
 }
 
-void Push(ElementType X, Stack S)
+void PushArray(ElementType X, Stack S)
 {
-	if (IsFull(S))
+	if (IsFullStackArray(S))
 	{
 		S->array = realloc(S->array, S->Capacity * 2);
 		S->Capacity *= 2;
@@ -46,17 +46,17 @@ void Push(ElementType X, Stack S)
 	S->array[++S->TopOfStack] = X;
 }
 
-ElementType Top(Stack S)
+ElementType TopArray(Stack S)
 {
-	if (IsEmpty(S))
+	if (IsEmptyStackArray(S))
 		fprintf(stderr, "Empty Stack\n");
 	else
 		return S->array[S->TopOfStack];
 }
 
-void Pop(Stack S)
+void PopArray(Stack S)
 {
-	if (IsEmpty(S))
+	if (IsEmptyStackArray(S))
 		fprintf(stderr, "Empty Stack\n");
 	else
 		S->TopOfStack--;		
@@ -66,7 +66,7 @@ void Pop(Stack S)
 
 int TopAndPop(Stack S)
 {
-	if (IsEmpty(S))
+	if (IsEmptyStackArray(S))
 		fprintf(stderr, "Empty Stack\n");
 	else
 	  return S->array[S->TopOfStack--];

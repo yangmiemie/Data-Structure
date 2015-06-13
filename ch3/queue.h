@@ -1,17 +1,17 @@
-#define ElementType int
+#define QueueElementType char
 
 struct QueueRecord;
 typedef struct QueueRecord* Queue;
 
-int IsEmpty(Queue Q);
+int IsEmptyQueue(Queue Q);
 int IsFull(Queue Q);
 Queue CreateQueue(int MaxElements);
 void DisposeQueue(Queue Q);
-void MakeEmpty(Queue);
-void Enqueue(ElementType X, Queue Q);
-ElementType Front(Queue Q);
+void MakeEmptyQueue(Queue);
+void Enqueue(QueueElementType X, Queue Q);
+QueueElementType Front(Queue Q);
 void Dequeue(Queue Q);
-ElementType FrontAndDequeue(Queue Q);
+QueueElementType FrontAndDequeue(Queue Q);
 
 struct QueueRecord
 {
@@ -19,6 +19,6 @@ struct QueueRecord
 	int Capacity;
 	int Front;
 	int Rear;
-	ElementType *Array;
+	QueueElementType *Array;
 };
 

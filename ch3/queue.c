@@ -6,7 +6,7 @@ Queue CreateQueue(int MaxElements)
 {
 	Queue Q;
 	Q = malloc(sizeof(struct QueueRecord));
-	Q->Array = malloc(sizeof(ElementType) * MaxElements);
+	Q->Array = malloc(sizeof(QueueElementType) * MaxElements);
 	Q->Capacity = MaxElements;
 	Q->Size = 0;
 	Q->Front = 0;
@@ -15,7 +15,7 @@ Queue CreateQueue(int MaxElements)
 	return Q;
 }
 
-int IsEmpty(Queue Q)
+int IsEmptyQueue(Queue Q)
 {
 	return Q->Rear == Q->Front;
 }
@@ -25,7 +25,7 @@ int IsFull(Queue Q)
 	return (Q->Rear + 1) == (Q->Front);
 }
 
-void MakeEmpty(Queue Q)
+void MakeEmptyQueue(Queue Q)
 {
 	Q->Rear = Q->Front;
 }
@@ -38,7 +38,7 @@ int Succ(int Value, Queue Q)
 	return Value;
 }
 
-void Enqueue(ElementType X, Queue Q)
+void Enqueue(QueueElementType X, Queue Q)
 {
 	if (IsFull(Q))
 	{
@@ -63,7 +63,7 @@ int Prev(int Value, Queue Q)
 
 void Dequeue(Queue Q)
 {
-	if (IsEmpty(Q))
+	if (IsEmptyQueue(Q))
 	{
 		fprintf(stderr, "Empty Queue\n");
 		exit(1);
@@ -75,10 +75,10 @@ void Dequeue(Queue Q)
 	}
 }
 
-ElementType FrontAndDequeue(Queue Q)
+QueueElementType FrontAndDequeue(Queue Q)
 {
-	ElementType X;
-	if (IsEmpty(Q))
+	QueueElementType X;
+	if (IsEmptyQueue(Q))
 	{
 		fprintf(stderr, "Empty Queue\n");
 		exit(1);
