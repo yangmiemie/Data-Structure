@@ -1,24 +1,5 @@
-#define NULL 0
-
-struct Node;
-typedef struct Node *PtrToNode;
-typedef PtrToNode List;
-typedef PtrToNode Position;
-
-List MakeEmpty(List L);
-int IsEmpty(List L);
-int IsLast(Position P, List L);
-Position Find(ElementType X, List L);
-void Delete(ElementType X, List L);
-Position FindPrevious(ElementType X, List L);
-void Insert(ElementType X, List L, Position P);
-void DeleteList(List L);
-
-struct Node
-{
-	ElementType Element;
-	Position Next;
-}
+#include "list.h"
+#include <stdlib.h>
 
 int IsEmpty(List L)
 {
@@ -87,4 +68,18 @@ void DeleteList(List L)
 		free(P);
 		P = TmpCell;
 	}
+}
+
+void printList(List L)
+{
+	Position P;
+	P = L -> Next;
+
+	while(P != NULL)
+	{
+		printf("%d ", P->Element);
+		P = P -> Next;		
+	}
+
+	printf("\n");
 }

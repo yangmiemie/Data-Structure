@@ -98,7 +98,7 @@ int main(int argc, char const *argv[])
 				Push(ExpressList[i], S);
 			}
 		}
-	}
+	}g
 
 	while(!IsEmptyStack(S))
 	{
