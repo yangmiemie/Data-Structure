@@ -92,5 +92,12 @@ int main(int argc, char const *argv[])
 
 	LevelTraverse(T);
 	printf("\n");
+
+	for (i = 0; i < sizeof(Array) / sizeof(Array[0]); ++i)
+	{
+		T = Delete(Array[i], T);
+		LevelTraverse(T);
+		printf("\n");
+	}
 	return 0;
 }

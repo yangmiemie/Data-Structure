@@ -78,8 +78,8 @@ void QuickSort(int* Array, int Start, int End)
 	
 	while(1)
 	{
-		while(i <= j && Array[i] < Pivot) ++i;
-		while(Array[j] > Pivot) --j;
+		while(i <= j && Array[i] <= Pivot) ++i;
+		while(i <= j && Array[j] >= Pivot) --j;
 
 		if (i > j)
 			break;

@@ -3,8 +3,8 @@
 struct TreeNode;
 // typedef struct TreeNode *Position;
 
-// #define QueueElementType int
-#define QueueElementType struct TreeNode*
+#define QueueElementType char
+// #define QueueElementType struct TreeNode*
 
 struct QueueRecord;
 typedef struct QueueRecord* Queue;
