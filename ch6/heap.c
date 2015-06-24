@@ -40,7 +40,7 @@ void PercolateDown(int i, int Size, ElementType* Elements)
 	while((k = 2 * i) <= Size)
 	{
 		if (2 * i < Size && Elements[2*i] > Elements[2*i+1])
-			k = 2 * i + 1;
+			++k;
 
 		if (Elements[i] <= Elements[k])
 			break;
