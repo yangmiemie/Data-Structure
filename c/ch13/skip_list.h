@@ -11,3 +11,6 @@ SkipList SLInit();
 Link Insert(SkipList SL, ElementType X);
 Link Search(SkipList SL, ElementType X);
 Link PrintLink(SkipList SL);
+int Size(SkipList SL);
+ElementType Value(Position P);
+void Delete(SkipList SL, ElementType X);
