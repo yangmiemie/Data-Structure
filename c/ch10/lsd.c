@@ -13,14 +13,14 @@ int Digit(ElementType S, int w)
 
 void RadixLSD(ElementType A[], int Left, int Right)
 {
-	int i, j, w, Count[R];
+	int i, j, w, Count[R + 1];
 	ElementType *Aux;
 
-	Aux = malloc(sizeof(ElementType) * (Right - Left + 2));
+	Aux = malloc(sizeof(ElementType) * (Right - Left + 1));
 
 	for (w = BytesWord - 1; w >= 0 ; --w)
 	{
-		for (j = 0; j < R; ++j)
+		for (j = 0; j < R + 1; ++j)
 			Count[j] = 0;
 
 		// The number of char is store in Count with index of char + 1
@@ -41,7 +41,7 @@ void RadixLSD(ElementType A[], int Left, int Right)
 		}
 
 		for (i = Left; i <= Right; ++i)
-			A[i] = Aux[i];
+			A[i] = Aux[i - Left];
 	}
 
 	free(Aux);
@@ -50,7 +50,7 @@ void RadixLSD(ElementType A[], int Left, int Right)
 int main(int argc, char const *argv[])
 {
 	int i, j, N, Len;
-	N = 10;
+	N = 10000;
 
 	ElementType A[N];
 
