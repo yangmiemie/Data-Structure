@@ -43,11 +43,11 @@ Tree TSTInsert(Tree T, ElementType X, int W)
 
 	i = Digit(X, W);
 
-	if (T == NULL)
-		T = NewNode(i);
-
 	if (i == NULLDigit)
 		return T;
+
+	if (T == NULL)
+		T = NewNode(i);
 
 	if (T -> Element < i)
 		T -> Right = TSTInsert(T -> Right, X, W);
@@ -94,7 +94,7 @@ void PrintTree(Tree T)
 {
 	if (T -> Left == NULL && T -> Middle == NULL && T -> Right == NULL)
 	{
-		printf("\n");
+		printf("%c\n", T -> Element);
 		return;
 	}
 
